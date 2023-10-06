@@ -1,0 +1,73 @@
+{% extends "pages/base.html" %}
+{% block title %}
+    Blog
+{% endblock title %}
+{% block blog %}
+{% for post in Posts %}
+{% if post.id == 1 %}
+<div class="col-div-6">
+    <div class="box-1">
+    <img src="{{post.image.url}}" class="b-img">
+    <h3 class="heading1">Travel</h3>
+    <p class="blog-heading">{{post.date|date:"d-m-Y"}}<a href="{{post.id}}">{{post.title}}</a></p>
+    <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Beautiful Location For Travel</p>
+    <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+    <span class="name">Manoj Singh . {{post.date | date:'d-M-y'}}</span>
+</div>
+</div>
+{% endif %}
+{% endfor %}
+
+{% for post in Posts %}
+{% if post.id >= 2 and post.id <= 3 %}
+<div class="col-div-6">
+<div class="lr-box">
+<div class="col-div-6">
+    <h3 class="heading1">News</h3>
+    <p class="blog-heading-1"><a href="{{post.id}}">{{post.title}}</a>{{post.title}}</p>
+    <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting </p>
+    <span class="name">Manoj Singh . {{post.date | date:'d-M-y'}}</span>
+</div>
+<div class="col-div-6">
+    <img src="{{post.image.url}}" class="b-img-1">
+</div>
+<div class="clearfix"></div>
+<hr class="line">
+</div>
+</div>
+{% endif %}
+{% endfor %}
+{% endblock %}
+
+{% block lastest %}
+<h3>Latest stories</h3>
+		<br>
+<form method="GET" action="search">
+    <div class="input-group">
+      <input
+        type="search"
+        class="form-control"
+        name="query"
+        placeholder="Search"
+      />
+      <div class="input-group-btn">
+        <button class="btn btn-primary" type="submit">Search</button>
+      </div>
+    </div>
+  </form>
+{% for post in Posts %}
+{% if post.id >= 4 %}
+<div class="box-2">
+    <img src="{{post.image.url}}" class="b-img-1">
+    <h3 class="heading1">Entertainment</h3>
+        <p class="blog-heading-1"><a href="{{post.id}}">{{post.title}}</a></p>
+        <p class="text"> Lorem Ipsum is simply dummy text of the printing and typesetting </p>
+        <span class="name">Manoj Singh . {{post.date | date:'d-M-y'}}</span>
+</div>
+{% endif %}
+{% endfor %}
+{% endblock lastest %}
+
+
+
+

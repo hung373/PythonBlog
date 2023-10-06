@@ -1,0 +1,16 @@
+{% extends "pages/base.html" %}
+{% block title %}
+Post
+{% endblock title %}
+{% block content %}
+<h3><a href="/{{post.id}}">{{post.title}}</a></h3>
+<h6>on {{post.date}}</h6>
+{% if post.audio.url != null %}
+<audio src="{{post.audio.url}}" controls></audio>
+{% endif %}
+{{post.body|safe|linebreaks}}
+<img src="{{post.image.url}}" alt="" width="500px" height="300px">
+{% endblock content %}
+
+
+
